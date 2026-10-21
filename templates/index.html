@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grok Local</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <div class="sidebar">
+      <div class="logo">FrehAiIgs</div>
+      <button id="new-chat" class="new-chat-btn">+ New Chat</button>
+      <button id="attach-folder" class="sidebar-btn">📁 Attach Folder</button>
+      <div id="folder-info" class="folder-info"></div>
+
+      <div class="history-section">
+        <div class="history-title">Chats</div>
+        <div id="chat-list" class="chat-list"></div>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="header">
+        <div class="header-left">
+          <h2>FrehAiIgs Local</h2>
+        </div>
+        <div class="header-right">
+          <div class="language-selector">
+            <select id="language-select">
+              <option value="en">🇬🇧 English</option>
+              <option value="cs">🇨🇿 Čeština</option>
+              <option value="sk">🇸🇰 Slovenčina</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div id="chat-messages" class="messages"></div>
+      
+      <div class="input-area">
+        <button id="attach-btn" class="attach-btn">+</button>
+        <textarea id="user-input" placeholder="Ask FrehAiIgs anything..."></textarea>
+        <button id="send-btn">→</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
