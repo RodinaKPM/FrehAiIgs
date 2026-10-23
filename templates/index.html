@@ -3,49 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grok Local</title>
+  <title>FrehAiIgs Local</title>
   <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.1.6/purify.min.js"></script>
 </head>
 <body>
   <div class="app">
+    <!-- Sidebar -->
     <div class="sidebar">
-      <div class="logo">FrehAiIgs</div>
+      <div class="logo">Freh<span>Ai</span>Igs</div>
       <button id="new-chat" class="new-chat-btn">+ New Chat</button>
-      <button id="attach-folder" class="sidebar-btn">📁 Attach Folder</button>
-      <div id="folder-info" class="folder-info"></div>
-
+      
       <div class="history-section">
-        <div class="history-title">Chats</div>
+        <div class="history-title">Recent Chats</div>
         <div id="chat-list" class="chat-list"></div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button id="open-settings" class="sidebar-btn">
+          <span id="settings-text">⚙️ Settings</span>
+          <span id="construction-badge" class="badge-construction">Under Construction</span>
+        </button>
       </div>
     </div>
 
+    <!-- Main Chat Area -->
     <div class="main">
       <div class="header">
-        <div class="header-left">
-          <h2>FrehAiIgs Local</h2>
-        </div>
-        <div class="header-right">
-          <div class="language-selector">
-            <select id="language-select">
-              <option value="en">🇬🇧 English</option>
-              <option value="cs">🇨🇿 Čeština</option>
-              <option value="sk">🇸🇰 Slovenčina</option>
-            </select>
-          </div>
+        <h2>FrehAiIgs Local <span class="badge">Qwen 3B</span></h2>
+        <div class="language-selector">
+          <select id="language-select">
+            <option value="en">🇬🇧 English</option>
+            <option value="cs">🇨🇿 Čeština</option>
+            <option value="sk">🇸🇰 Slovenčina</option>
+          </select>
         </div>
       </div>
 
       <div id="chat-messages" class="messages"></div>
       
-      <div class="input-area">
-        <button id="attach-btn" class="attach-btn">+</button>
-        <textarea id="user-input" placeholder="Ask FrehAiIgs anything..."></textarea>
-        <button id="send-btn">→</button>
+      <div class="input-wrap">
+        <div id="image-previews" class="image-previews"></div>
+        <div class="input-area">
+          <button id="attach-btn" class="attach-btn" title="Attach image">＋</button>
+          <textarea id="user-input" placeholder="Message FrehAiIgs..." rows="1"></textarea>
+          <button id="stop-btn" class="stop-btn" style="display:none;">⏹</button>
+          <button id="send-btn">→</button>
+        </div>
       </div>
     </div>
   </div>
 
+  <div id="toast-container"></div>
+  <input type="file" id="file-input" accept="image/*" multiple hidden>
   <script src="/static/script.js"></script>
 </body>
 </html>
